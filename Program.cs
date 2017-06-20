@@ -3,12 +3,12 @@
 namespace task_DEV_1
 {
     // Class that performs the function of a counter.
-    public static class Counter
+    public class Counter
     {
         // Perform count from 0 to 100 and 
         // print numbers to the console.
         // Numbers that are multiples of 3 are output in 3 * N format.
-        public static void Count()
+        public void Count()
         {
             string output;
             for (int i = 0; i <= 100; i++)
@@ -23,7 +23,8 @@ namespace task_DEV_1
     {
         static void Main()
         {
-            Counter.Count();
+            Counter counter = new Counter();
+            counter.Count();
         }
     }
 }
