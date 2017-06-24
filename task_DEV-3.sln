@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task_DEV-1", "task_DEV-1\task_DEV-1.csproj", "{B4C63DCF-E055-4F0B-99E8-D9432288A9FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task_DEV-3", "task_DEV-3\task_DEV-3.csproj", "{7D1BAE61-B5BD-4D53-BEEA-99FFCDFAB284}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4C63DCF-E055-4F0B-99E8-D9432288A9FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4C63DCF-E055-4F0B-99E8-D9432288A9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4C63DCF-E055-4F0B-99E8-D9432288A9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4C63DCF-E055-4F0B-99E8-D9432288A9FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D1BAE61-B5BD-4D53-BEEA-99FFCDFAB284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D1BAE61-B5BD-4D53-BEEA-99FFCDFAB284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D1BAE61-B5BD-4D53-BEEA-99FFCDFAB284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D1BAE61-B5BD-4D53-BEEA-99FFCDFAB284}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
