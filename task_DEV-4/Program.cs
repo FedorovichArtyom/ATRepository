@@ -61,6 +61,8 @@ namespace task_DEV_4
 
     class Program
     {
+        // A program that determines whether the entered into the console 
+        // sequence of integers is nondecreasing.
         static void Main(string[] args)
         {
             // Input sequence of integers, conversion to BigInteger, add sequence to 
