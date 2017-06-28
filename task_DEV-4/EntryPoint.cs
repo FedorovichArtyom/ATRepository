@@ -9,15 +9,15 @@ namespace task_DEV_4
     {
         static void Main(string[] args)
         {
-            NumberConsoleInputHelper inputHelper = new NumberConsoleInputHelper();
-            BigInteger[] enteredSequence = inputHelper.GetInputNumberSequence();
-            IntegerNumberSequence examinedSequence = new IntegerNumberSequence(enteredSequence);
-
-            // Check sequence for non-decreasing. Print answer to the console.
-            string outputMessage = examinedSequence.CheckSequenceForNonDecreasing()
-                ? "The entered sequence is non-decreasing."
-                : "The entered sequence isn't non-decreasing.";
-            Console.WriteLine(outputMessage);
+            SequenceNonDecreasingChecker enteredSequence = new SequenceNonDecreasingChecker();
+            if (args.Length != 0)
+            {
+                enteredSequence.CheckForNonDecreasingArg(args[0]);
+            }
+            else
+            {
+                enteredSequence.CheckForNonDecreasingConsole();
+            }
         }
     }
 }
