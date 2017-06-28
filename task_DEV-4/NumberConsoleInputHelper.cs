@@ -7,11 +7,11 @@ namespace task_DEV_4
     // from the console and converts them to an array.
     public class NumberConsoleInputHelper
     {
-        public BigInteger[] GetInputNumberSequence()
+        // Input sequence of integers, conversion to BigInteger, return sequence.
+        private BigInteger[] GetSequenceFromConsole()
         {
-            // Input sequence of integers, conversion to BigInteger, return sequence.
-            bool exitInputing = false;
             BigInteger[] inputSequence = null;
+            bool exitInputing = false;
             while (!exitInputing)
             {
                 Console.WriteLine("Enter the sequence of integer numbers (separate numbers with spaces): \n");
@@ -33,6 +33,41 @@ namespace task_DEV_4
                 }
             }
             return inputSequence;
+        }
+
+        private BigInteger[] GetSequenceFromArg(string arg)
+        {
+            char delimiter = ' ';
+            string[] inputSequenceString = arg.Split(delimiter);
+            BigInteger[] inputSequence = null;
+            try
+            {
+                for (int i = 0; i < inputSequenceString.Length; i++)
+                {
+                    inputSequence[i] = BigInteger.Parse(inputSequenceString[i]);
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Sorry, the entered sequence is incorrect! Try to type it in the console.");
+                inputSequence = GetSequenceFromConsole(); 
+            }
+            return inputSequence;
+        }
+
+        // 
+        public BigInteger[] GetInputNumberSequence(string arg)
+        {
+            BigInteger[] sequence = null;
+            if (arg != null)
+            {
+                sequence = GetSequenceFromArg(arg);
+            }
+            else
+            {
+                sequence = GetSequenceFromConsole();
+            }
+            return sequence;
         }
     }
 }

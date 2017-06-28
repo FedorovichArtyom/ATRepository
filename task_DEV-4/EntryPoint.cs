@@ -10,7 +10,7 @@ namespace task_DEV_4
         static void Main(string[] args)
         {
             NumberConsoleInputHelper inputHelper = new NumberConsoleInputHelper();
-            BigInteger[] enteredSequence = inputHelper.GetInputNumberSequence();
+            BigInteger[] enteredSequence = inputHelper.GetInputNumberSequence(args[0]);
             IntegerNumberSequence examinedSequence = new IntegerNumberSequence(enteredSequence);
 
             // Check sequence for non-decreasing. Print answer to the console.

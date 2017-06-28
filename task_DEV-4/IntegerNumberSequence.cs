@@ -22,14 +22,18 @@ namespace task_DEV_4
             {
                 numberSequence = value;
             }
+            get 
+            {
+                return numberSequence;
+            }
         }
 
         // A method to determine whether a sequence is non-decreasing.
         public bool CheckSequenceForNonDecreasing()
         {
             bool isNonDecreasing = true;
-            BigInteger previousMember = numberSequence[0];
-            foreach (BigInteger member in numberSequence)
+            BigInteger previousMember = SequenceValues[0];
+            foreach (BigInteger member in SequenceValues)
             {
                 if (member < previousMember)
                 {
