@@ -10,6 +10,7 @@ namespace task_DEV_4
         public void CheckForNonDecreasingArg(string arg)
         {
             char delimiter = ' ';
+            bool exitChecking = false;
             string[] inputSequenceString = arg.Split(delimiter);
             BigInteger[] inputSequence = new BigInteger[inputSequenceString.Length];
 
@@ -24,23 +25,27 @@ namespace task_DEV_4
             {
                 Console.WriteLine("Sorry, the entered sequence is incorrect! Try to type it in the console.");
                 CheckForNonDecreasingConsole();
+                exitChecking = true;
             }
 
-            bool isNonDecreasing = true;
-            BigInteger previousMember = inputSequence[0];
-            foreach (BigInteger member in inputSequence)
+            if (!exitChecking)
             {
-                if (member < previousMember)
+                bool isNonDecreasing = true;
+                BigInteger previousMember = inputSequence[0];
+                foreach (BigInteger member in inputSequence)
                 {
-                    isNonDecreasing = false;
-                    break;
+                    if (member < previousMember)
+                    {
+                        isNonDecreasing = false;
+                        break;
+                    }
+                    previousMember = member;
                 }
-                previousMember = member;
+                string outputMessage = isNonDecreasing
+                    ? "The entered sequence is non-decreasing. \n"
+                    : "The entered sequence isn't non-decreasing. \n";
+                Console.WriteLine(outputMessage);
             }
-            string outputMessage = isNonDecreasing
-                ? "The entered sequence is non-decreasing."
-                : "The entered sequence isn't non-decreasing.";
-            Console.WriteLine(outputMessage);
         }
 
         // A method examines whether a sequence entered in console is non-decreasing.
@@ -56,12 +61,12 @@ namespace task_DEV_4
                     BigInteger currentMember = BigInteger.Parse(Console.ReadLine());
                     if (currentMember < prevMember)
                     {
-                        Console.WriteLine("The entered sequence isn't non-decreasing.");
+                        Console.WriteLine("The entered sequence isn't non-decreasing. \n");
                         exitInputing = true;
                     }
                     else
                     {
-                        Console.WriteLine("The entered sequence is non-decreasing.");
+                        Console.WriteLine("The entered sequence is non-decreasing. \n");
                     }
                     prevMember = currentMember;
                 }
