@@ -4,28 +4,35 @@ using System.Text;
 
 namespace task_DEV_9
 {
-  // Read info from the file helper
+  // Read info from the file helper.
   public class FileReader
   {
     // Returns the array of splited strings readed from the custom file located in a project directory.
-    // By default this file is InputDataFile.txt.
+    // By default this file is InputDataFile.txt. 
+    // Use command line args to change the filepaths.
+    //
+    // System.NotSupportedException,
+    // System.IndexOutOfRangeException.
+    // System.ArgumentException,
+    // System.IO.FileNotFoundException,
+    // System.IO.DirectoryNotFoundException,
+    // System.IO.IOException,
     public string[] GetStringsFromCustomFile()
     {
-      StringBuilder filePath = new StringBuilder();
-      string customFileName = "InputDataFile.txt";
-      // Get builded project path dir.
-      string buildPath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-
-      // Get the project full path name and finally set up the filePath name.
-      filePath.Append(buildPath.Replace(@"bin\Debug", string.Empty));
-      filePath.Append(customFileName);
+      // Get the filepath.
+      string[] args = Environment.GetCommandLineArgs();
+      string filePath = args[1];
 
       // Read, split and return data from file.
-      TextReader textReader = new StreamReader(filePath.ToString());
-      string fileData = textReader.ReadToEnd();
-      char[] delimiters = null;
-      return fileData.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+      string[] dataFromFile = null;
+      using (TextReader textReader = new StreamReader(filePath))
+      {
+        char[] delimiters = null;
+        dataFromFile = textReader.ReadToEnd()
+          .Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+      }
+      
+      return dataFromFile;
     }
-
   }
 }

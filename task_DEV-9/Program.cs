@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Collections.Generic;
+using System;
 
 namespace task_DEV_9
 {
@@ -9,13 +10,36 @@ namespace task_DEV_9
   {
     static void Main(string[] args)
     {
-      string[] dataFromFile = new FileReader().GetStringsFromCustomFile();
-      ConsoleHandler consoleHandler = new ConsoleHandler();
+      string[] dataFromFile = null;
+      try
+      {
+        dataFromFile = new FileReader().GetStringsFromCustomFile();
+      }
+      catch (IndexOutOfRangeException ex)
+      {
+        Console.WriteLine(AssemblyInfo.emptyFileNameMessage);
+        return;
+      }
+      catch (ArgumentException ex)
+      {
+        Console.WriteLine(AssemblyInfo.notValidFileTypeMessage);
+        return;
+      }
+      catch (FileNotFoundException ex)
+      {
+        Console.WriteLine(AssemblyInfo.cantOpenFileMessage);
+        return;
+      }
+      catch (IOException ex)
+      {
+        Console.WriteLine(AssemblyInfo.ioStreamConflictMessage);
+        return;
+      }
 
       // If the data contain less or more than 2 strings.
-      if (dataFromFile.Length != 2)
+      if ((dataFromFile.Length != 2) && (dataFromFile != null))
       {
-        consoleHandler.PrintNotValidDataMessage();
+        Console.WriteLine(AssemblyInfo.notValidDataAmountMessage);
         return;
       }
       
@@ -23,7 +47,8 @@ namespace task_DEV_9
       string changingStr = dataFromFile[1];
       string swapResult = new StringContentChanger().SwapRandomCharSequence(changedStr, changingStr);
 
-      consoleHandler.PrintSwapResult(changedStr, changingStr, swapResult);
+      Console.WriteLine(AssemblyInfo.beforeSwapOperationMessage, changedStr, changingStr);
+      Console.WriteLine(AssemblyInfo.afterSwapOperationMessage, swapResult);
     } 
   }
 }
