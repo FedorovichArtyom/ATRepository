@@ -37,10 +37,19 @@ using System.Runtime.InteropServices;
 
 public class AssemblyInfo
 {
+  // Custom messages.
   public const string invalidDataFromFileMessage = "One or more of the inputted numbers have wrong format.";
   public const string incorrectFilePathMessage = "The current filepath is incorrect.";
   public const string emptyFilePathMessage = "Empty filepath. Can't read data.";
   public const string fileNotFoundMessage = "Can't find the file. Check the filepath.";
   public const string directoryNotFoundMessage = "Wrong directory in the filepath.";
   public const string dataReadFromFileErrorMessage = "Can't read data from the file.";
+  public const string overflowErrorMessage = "One or more of inputed values represents a number that is" +
+          "less than Double.MinValue or greater than Double.MaxValue.";
+
+  // Culture info setup.
+  public const string inputDataCultureFormat = "en";
+
+  // Comparison accuracy for double numbers.
+  public const double comparisonAccuracy = 0.0001;
 }

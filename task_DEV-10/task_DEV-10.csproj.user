@@ -2,5 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartArguments>InputDataFile.txt</StartArguments>
+    <StartWorkingDirectory>D:\Study\EPAM\AT-Projects\task_DEV-10\</StartWorkingDirectory>
   </PropertyGroup>
 </Project>

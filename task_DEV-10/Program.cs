@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace task_DEV_10
 {
@@ -10,6 +7,7 @@ namespace task_DEV_10
   {
     static void Main(string[] args)
     {
+      // Get the list of arrays from the text file.
       List<double[]> arrays = null;
       try
       {
@@ -45,15 +43,34 @@ namespace task_DEV_10
         Console.WriteLine(AssemblyInfo.dataReadFromFileErrorMessage);
         return;
       }
+      catch (OverflowException ex)
+      {
+        Console.WriteLine(AssemblyInfo.overflowErrorMessage);
+        return;
+      }
 
+      // Output the original arrays.
+      Console.WriteLine("Original arrays:");
       foreach (var array in arrays)
       {
+        Console.Write("[ ");
         foreach (var element in array)
         {
           Console.Write(element + " ");
         }
-        Console.WriteLine();
+        Console.WriteLine(']');
       }
+
+      // Output the resulting array of equal elements.
+      var equalElementsArray = new EqualElementsSearcher().GetEqualElementsFromArrays(arrays, 
+        AssemblyInfo.comparisonAccuracy);
+
+      Console.Write("\nResult:\n[ ");
+      foreach (var element in equalElementsArray)
+      {
+        Console.Write(element + " ");
+      }
+      Console.WriteLine(']');
     }
   }
 }

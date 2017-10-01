@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace task_DEV_10
 {
@@ -12,7 +13,7 @@ namespace task_DEV_10
     // By default this file is InputDataFile.txt. 
     // Use command line args to change the filepaths.
     // To set up the arrays use [] brackets to divide array instances, and spaces to divide elements in 
-    // the array.
+    // the array. To set up values for arrays use 'en-US' culture format.
     //
     // System.ArgumentException,
     // System.FormatException,
@@ -20,7 +21,8 @@ namespace task_DEV_10
     // System.IO.FileNotFoundException,
     // System.IO.DirectoryNotFoundException,
     // System.IO.IOException,
-    // System.NotSupportedException.
+    // System.NotSupportedException,
+    // System.OverflowException.
     public List<double[]> GetArraysOfDoubleFromCustomFile()
     {
       // Get the filepath.
@@ -31,7 +33,7 @@ namespace task_DEV_10
       string[] dataFromFile = null;
       using (TextReader textReader = new StreamReader(filePath))
       {
-        char[] delimiters = { '[', ']' };
+        char[] delimiters = { '[', ']', '\r', '\n' };
         dataFromFile = textReader.ReadToEnd()
           .Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
       }
@@ -46,10 +48,8 @@ namespace task_DEV_10
 
         for (int i = 0; i < arrayInstances.Length; i++)
         {
-          if (!double.TryParse(arrayInstances[i], out convertedArrayInstances[i]))
-          {
-            throw new FormatException();
-          }
+          CultureInfo cultureInfo = new CultureInfo(AssemblyInfo.inputDataCultureFormat);
+          convertedArrayInstances[i] = Convert.ToDouble(arrayInstances[i], cultureInfo);
         }
 
         // If the conversion of each member of each individual array is successful,
