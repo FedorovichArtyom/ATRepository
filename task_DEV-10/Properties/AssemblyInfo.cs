@@ -34,3 +34,13 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+public class AssemblyInfo
+{
+  public const string invalidDataFromFileMessage = "One or more of the inputted numbers have wrong format.";
+  public const string incorrectFilePathMessage = "The current filepath is incorrect.";
+  public const string emptyFilePathMessage = "Empty filepath. Can't read data.";
+  public const string fileNotFoundMessage = "Can't find the file. Check the filepath.";
+  public const string directoryNotFoundMessage = "Wrong directory in the filepath.";
+  public const string dataReadFromFileErrorMessage = "Can't read data from the file.";
+}
