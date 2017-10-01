@@ -15,7 +15,7 @@ namespace task_DEV_10
       }
       catch (ArgumentException ex)
       {
-        Console.WriteLine();
+        Console.WriteLine(AssemblyInfo.incorrectFilePathMessage);
         return;
       }
       catch (FormatException ex)
