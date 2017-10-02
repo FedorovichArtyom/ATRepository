@@ -9,6 +9,14 @@ namespace task_DEV_10
     // Returns the array of equal elements in the list of arrays of doubles.
     public double[] GetEqualElementsFromArrays(List<double[]> arrays, double comparisonAccuracy)
     {
+      //  Remove duplicates of equal element from each array.
+      List<double[]> modifiedArrays = new List<double[]>();
+      foreach (var array in arrays)
+      {
+        modifiedArrays.Add(RemoveEqualElements(array, comparisonAccuracy));
+      }
+      arrays = modifiedArrays;
+
       // Merge arrays in one.
       double[] mergedArray = MergeArrays(arrays);
 
@@ -54,6 +62,21 @@ namespace task_DEV_10
       }
 
       return mergedArray;
+    }
+
+    // Remove duplicates of equal elements in array.
+    private double[] RemoveEqualElements(double[] array, double comparisonAccuracy)
+    {
+      List<double> nonDuplicateNumbers = new List<double>();
+      nonDuplicateNumbers.Add(array[0]);
+      for (int i = 1; i < array.Length; i++)
+      {
+        if (Math.Abs(array[i] - array[i - 1]) > Math.Abs(comparisonAccuracy))
+        {
+          nonDuplicateNumbers.Add(array[i]);
+        }
+      }
+      return nonDuplicateNumbers.ToArray();
     }
   }
 }
