@@ -15,14 +15,14 @@ namespace task_DEV_10
     // To set up the arrays use [] brackets to divide array instances, and spaces to divide elements in 
     // the array. To set up values for arrays use 'en-US' culture format.
     //
-    // System.ArgumentException,
-    // System.FormatException,
-    // System.IndexOutOfRangeException,
-    // System.IO.FileNotFoundException,
-    // System.IO.DirectoryNotFoundException,
-    // System.IO.IOException,
-    // System.NotSupportedException,
-    // System.OverflowException.
+    // System.ArgumentException - incorrect filePath,
+    // System.FormatException - wrong format of inputed numbers,
+    // System.IndexOutOfRangeException - empty filePath,
+    // System.IO.FileNotFoundException - not found file with current name from filePath,
+    // System.IO.DirectoryNotFoundException - not found directory from filePath,
+    // System.IO.IOException - got error while reading data from file,
+    // System.NotSupportedException - current platform has no realisation of one of the using methods,
+    // System.OverflowException - one or more of inputed numbers are out of range of the double.
     public List<double[]> GetArraysOfDoubleFromCustomFile()
     {
       // Get the filepath.

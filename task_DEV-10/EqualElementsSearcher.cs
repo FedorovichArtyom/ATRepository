@@ -20,7 +20,7 @@ namespace task_DEV_10
       // Merge arrays in one.
       double[] mergedArray = MergeArrays(arrays);
 
-      // Sort arrays.
+      // Sort merged array.
       Array.Sort(mergedArray);
 
       // Find equal accurate to comparisonAccuracy elements and place them in the list.
