@@ -15,24 +15,9 @@ namespace task_DEV_9
       {
         dataFromFile = new FileReader().GetStringsFromCustomFile();
       }
-      catch (IndexOutOfRangeException ex)
+      catch (Exception ex)
       {
-        Console.WriteLine(AssemblyInfo.emptyFileNameMessage);
-        return;
-      }
-      catch (ArgumentException ex)
-      {
-        Console.WriteLine(AssemblyInfo.notValidFileTypeMessage);
-        return;
-      }
-      catch (FileNotFoundException ex)
-      {
-        Console.WriteLine(AssemblyInfo.cantOpenFileMessage);
-        return;
-      }
-      catch (IOException ex)
-      {
-        Console.WriteLine(AssemblyInfo.ioStreamConflictMessage);
+        Console.WriteLine(ex.Message);
         return;
       }
 
