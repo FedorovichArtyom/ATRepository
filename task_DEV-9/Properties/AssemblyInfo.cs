@@ -40,6 +40,6 @@ public class AssemblyInfo
 {
   public const string beforeSwapOperationMessage = "Changed string: {0}, changing string: {1}";
   public const string afterSwapOperationMessage = "String after swap operation: {0}";
-  public const string notValidDataAmountMessage = "The amount of inputed strings is incorrect. There should be 2 strings.";
+  public const string notValidDataAmountMessage = "The amount of inputed strings is incorrect. There should be two strings.";
 
 }
