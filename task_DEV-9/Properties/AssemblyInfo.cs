@@ -35,13 +35,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
+
 public class AssemblyInfo
 {
   public const string beforeSwapOperationMessage = "Changed string: {0}, changing string: {1}";
   public const string afterSwapOperationMessage = "String after swap operation: {0}";
   public const string notValidDataAmountMessage = "The amount of inputed strings is incorrect. There should be 2 strings.";
-  public const string emptyFileNameMessage = "Can't open the file. Enter filename.";
-  public const string notValidFileTypeMessage = "Incorrect filetype. It should be .txt format.";
-  public const string cantOpenFileMessage = "Can't open the file. Check the existence of this file in the project's root directory";
-  public const string ioStreamConflictMessage = "Can't read data from the file.";
+
 }
