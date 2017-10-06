@@ -34,3 +34,11 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+public class AssemblyInfo
+{ 
+  // Console arguments indeces for data files.
+  public const int fromRusToLatinAlphabetArgIndex = 0;
+  public const int fromLatinToRusAlphabetArgIndex = 1;
+  public const int inputStringArgIndex = 2;
+}

@@ -19,15 +19,15 @@ namespace task_DEV_11
         FileReader fileReader = new FileReader();
 
         // Get from rus to latin alphabet from file.
-        string filePath = args[0];
+        string filePath = args[AssemblyInfo.fromRusToLatinAlphabetArgIndex];
         fromRusToLatinAlphabet = fileReader.GetAlphabetFromFile(filePath);
 
         // Get from latin to rus alphabet from file.
-        filePath = args[1];
+        filePath = args[AssemblyInfo.fromLatinToRusAlphabetArgIndex];
         fromLatinToRusAlphabet = fileReader.GetAlphabetFromFile(filePath);
 
         // Get input string from File
-        filePath = args[2];
+        filePath = args[AssemblyInfo.inputStringArgIndex];
         input = fileReader.GetInputStringFromFile(filePath);
 
         // Do transliteration.
