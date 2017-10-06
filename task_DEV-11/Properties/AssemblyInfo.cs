@@ -37,6 +37,8 @@ using System.Runtime.InteropServices;
 
 public class AssemblyInfo
 { 
+  // Messages.
+  public const string resultMessage = "The result of translation:";
   // Console arguments indeces for data files.
   public const int fromRusToLatinAlphabetArgIndex = 0;
   public const int fromLatinToRusAlphabetArgIndex = 1;

@@ -31,7 +31,7 @@ namespace task_DEV_11
       Dictionary<string, string> fromLatinToRusAlphabet)
     {
       // If the input string contains at least one formant of latin alphabet the exception is coming.
-      string transliteratedInput = null;
+      string transliteratedInput = input;
       foreach (var value in fromLatinToRusAlphabet.Keys)
       {
         if (input.Contains(value))
@@ -43,7 +43,7 @@ namespace task_DEV_11
       // Do transliteration by replacing all formants of rus alphabet with the latin formants.
       foreach (var value in fromRusToLatinAlphabet.Keys)
       {
-        transliteratedInput = input.Replace(value, fromRusToLatinAlphabet[value]);
+        transliteratedInput = transliteratedInput.Replace(value, fromRusToLatinAlphabet[value]);
       }
 
       return transliteratedInput;
@@ -54,7 +54,7 @@ namespace task_DEV_11
       Dictionary<string, string> fromLatinToRusAlphabet)
     {
       // If the input string contains at least one formant of rus alphabet the exception is coming.
-      string transliteratedInput = null;
+      string transliteratedInput = input;
       foreach (var value in fromRusToLatinAlphabet.Keys)
       {
         if (input.Contains(value))
@@ -66,7 +66,7 @@ namespace task_DEV_11
       // Do transliteration by replacing all formants of latin alphabet with the rus formants.
       foreach (var value in fromLatinToRusAlphabet.Keys)
       {
-        transliteratedInput = input.Replace(value, fromLatinToRusAlphabet[value]);
+        transliteratedInput = transliteratedInput.Replace(value, fromLatinToRusAlphabet[value]);
       }
       return transliteratedInput;
     }

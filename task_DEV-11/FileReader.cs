@@ -12,7 +12,7 @@ namespace task_DEV_11
       string[] alphabetFromFileFormantPairs = null;
       using (TextReader textReader = new StreamReader(filePath))
       {
-        char[] delimiters = { '[', ']', '\r', '\n' };
+        char[] delimiters = { '[', ']', '\r', '\n', '\t' };
         alphabetFromFileFormantPairs = textReader.ReadToEnd()
           .Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
       }
@@ -21,7 +21,7 @@ namespace task_DEV_11
       var alphabet = new Dictionary<string, string>();
       foreach (var formantsMapping in alphabetFromFileFormantPairs)
       {
-        char[] delimiters = { ' ', '-' };
+        char[] delimiters = { '-' };
         string[] formants = formantsMapping.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
         alphabet.Add(formants[0].Replace("\"", string.Empty), formants[1].Replace("\"", string.Empty));
       }
