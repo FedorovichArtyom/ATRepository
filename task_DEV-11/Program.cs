@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 namespace task_DEV_11
 {
+  // Current program uses data from file and latin to rus, rus to latin alphabets to 
+  // transliterate the string in InputData.txt
   class Program
   {
     static void Main(string[] args)

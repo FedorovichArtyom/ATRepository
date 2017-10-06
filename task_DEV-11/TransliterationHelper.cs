@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace task_DEV_11
 {
+  // Class that provides methods to imlement transliteration of the string from latin to rus and from rus to latin.
   public class TransliterationHelper
   {
+    // Transliterate the string, choosing right variant: from rus to latin or from latin to rus.
     public string Transliterate(string input, Dictionary<string, string> fromRusToLatinAlphabet,
       Dictionary<string, string> fromLatinToRusAlphabet)
     {
@@ -27,6 +29,7 @@ namespace task_DEV_11
         : TransliterateFromRusToLatin(input, fromRusToLatinAlphabet, fromLatinToRusAlphabet);
     }
 
+    // Transliterate string from rus to latin.
     public string TransliterateFromRusToLatin(string input, Dictionary<string, string> fromRusToLatinAlphabet,
       Dictionary<string, string> fromLatinToRusAlphabet)
     {
@@ -36,7 +39,7 @@ namespace task_DEV_11
       {
         if (input.Contains(value))
         {
-          throw new Exception();
+          throw new ArgumentException();
         }
       }
 
@@ -49,7 +52,7 @@ namespace task_DEV_11
       return transliteratedInput;
     }
 
-    //
+    // Transliterate string from latin to rus.
     public string TransliterateFromLatinToRus(string input, Dictionary<string, string> fromRusToLatinAlphabet,
       Dictionary<string, string> fromLatinToRusAlphabet)
     {
@@ -59,7 +62,7 @@ namespace task_DEV_11
       {
         if (input.Contains(value))
         {
-          throw new Exception();
+          throw new ArgumentException();
         }
       }
 
