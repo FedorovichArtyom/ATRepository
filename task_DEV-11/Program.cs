@@ -41,7 +41,7 @@ namespace task_DEV_11
       }
 
       // Output the result of transliteration.
-      Console.WriteLine()
+      Console.WriteLine(AssemblyInfo.resultMessage);
       Console.WriteLine(afterTransliterationResult);
     }
   }
