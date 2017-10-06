@@ -8,57 +8,30 @@ namespace task_DEV_11
   {
     static void Main(string[] args)
     {
-      string[] alphabetFromFile = null;
-      string dataFromFile;
-      string afterTransliterate;
+      string input;
+      string afterTransliterationResult;
 
       var fromRusToLatinAlphabet = new Dictionary<string, string>();
       var fromLatinToRusAlphabet = new Dictionary<string, string>();
 
       try
       {
+        FileReader fileReader = new FileReader();
+
         // Get from rus to latin alphabet from file.
         string filePath = args[0];
-        using (TextReader textReader = new StreamReader(args[0]))
-        {
-          char[] delimiters = { '[', ']', '\r', '\n' };
-          alphabetFromFile = textReader.ReadToEnd()
-            .Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-        }
-
-        // Add it to the fromRusToLatinAlphabet dictionary.
-        foreach (var value in alphabetFromFile)
-        {
-          char[] delimiters = { ' ', '-' };
-          string[] formants = value.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-          fromRusToLatinAlphabet.Add(formants[0], formants[1]);
-        }
+        fromRusToLatinAlphabet = fileReader.GetAlphabetFromFile(filePath);
 
         // Get from latin to rus alphabet from file.
         filePath = args[1];
-        using (TextReader textReader = new StreamReader(args[1]))
-        {
-          char[] delimiters = { '[', ']', '\r', '\n' };
-          alphabetFromFile = textReader.ReadToEnd()
-            .Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-        }
-
-        // Add it to the fromLatinToRusAlphabet dictionary.
-        foreach (var value in alphabetFromFile)
-        {
-          char[] delimiters = { ' ', '-' };
-          string[] formants = value.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-          fromRusToLatinAlphabet.Add(formants[0], formants[1]);
-        }
+        fromLatinToRusAlphabet = fileReader.GetAlphabetFromFile(filePath);
 
         // Get input string from File
-        using (TextReader textReader = new StreamReader(args[1]))
-        {
-          dataFromFile = textReader.ReadToEnd();
-        }
+        filePath = args[2];
+        input = fileReader.GetInputStringFromFile(filePath);
 
         // Do transliteration.
-        afterTransliterate = new TransliterationHelper().Transliterate(dataFromFile, fromRusToLatinAlphabet, 
+        afterTransliterationResult = new TransliterationHelper().Transliterate(input, fromRusToLatinAlphabet, 
           fromLatinToRusAlphabet);
       }
       catch (Exception ex)
@@ -68,7 +41,7 @@ namespace task_DEV_11
       }
 
       // Output the result of transliteration.
-      Console.WriteLine(afterTransliterate);
+      Console.WriteLine(afterTransliterationResult);
     }
   }
 }
