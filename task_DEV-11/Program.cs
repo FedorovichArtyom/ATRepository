@@ -42,6 +42,10 @@ namespace task_DEV_11
         return;
       }
 
+      // Print the input message.
+      Console.WriteLine(AssemblyInfo.inputMessage);
+      Console.WriteLine(input + "\n");
+
       // Output the result of transliteration.
       Console.WriteLine(AssemblyInfo.resultMessage);
       Console.WriteLine(afterTransliterationResult);

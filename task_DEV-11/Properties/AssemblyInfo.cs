@@ -39,6 +39,7 @@ public class AssemblyInfo
 { 
   // Messages.
   public const string resultMessage = "The result of translation:";
+  public const string inputMessage = "Before transliteration: ";
   // Console arguments indeces for data files.
   public const int fromRusToLatinAlphabetArgIndex = 0;
   public const int fromLatinToRusAlphabetArgIndex = 1;

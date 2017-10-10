@@ -8,20 +8,21 @@ namespace task_DEV_11
   {
     public Dictionary<string, string> GetAlphabetFromFile(string filePath)
     {
-      // Get alphabet from file.
+      // Get an alphabet from file.
       string[] alphabetFromFileFormantPairs = null;
+      char[] delimiters = null;
       using (TextReader textReader = new StreamReader(filePath))
       {
-        char[] delimiters = { '[', ']', '\r', '\n', '\t' };
+        delimiters = new char[]{ '[', ']', '\r', '\n', '\t' };
         alphabetFromFileFormantPairs = textReader.ReadToEnd()
           .Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
       }
 
-      // Add it to the dictionary.
+      // Format an alphabet in the dictionary.
       var alphabet = new Dictionary<string, string>();
       foreach (var formantsMapping in alphabetFromFileFormantPairs)
       {
-        char[] delimiters = { '-' };
+        delimiters = new char[]{ '-' };
         string[] formants = formantsMapping.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
         alphabet.Add(formants[0].Replace("\"", string.Empty), formants[1].Replace("\"", string.Empty));
       }
@@ -29,10 +30,11 @@ namespace task_DEV_11
       return alphabet;
     }
 
-    public string GetInputStringFromFile(string filepath)
+    // Read data from file with filePath as a string.
+    public string GetInputStringFromFile(string filePath)
     {
       string inputString;
-      using (TextReader textReader = new StreamReader(filepath))
+      using (TextReader textReader = new StreamReader(filePath))
       {
         inputString = textReader.ReadToEnd();
       }
