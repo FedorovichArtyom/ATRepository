@@ -2,7 +2,7 @@
 
 namespace task_DEV_7
 {
-  abstract class TriangleBuilder
+  public abstract class TriangleBuilder
   {
     protected TriangleBuilder invokedBuilder;
     public abstract SimpleTriangle Build(TriangleSides sides);

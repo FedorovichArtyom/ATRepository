@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace task_DEV_7
 {
@@ -19,7 +15,7 @@ namespace task_DEV_7
         (First + Third > Second));
     }
 
-    public bool ContainsEqual()
+    public bool ContainEqual()
     {
       return Math.Abs(First - Second) < double.Epsilon ||
         Math.Abs(Second - Third) < double.Epsilon ||

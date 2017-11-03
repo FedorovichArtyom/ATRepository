@@ -49,7 +49,7 @@
     <Compile Include="Triangles\IsoscelesTriangle.cs" />
     <Compile Include="TriangleBuilders\IsoscelesTriangleBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Other\Sides.cs" />
+    <Compile Include="Other\TriangleSides.cs" />
     <Compile Include="Triangles\SimpleTriangle.cs" />
     <Compile Include="TriangleBuilders\SimpleTriangleBuilder.cs" />
     <Compile Include="TriangleBuilders\TriangleBuilder.cs" />

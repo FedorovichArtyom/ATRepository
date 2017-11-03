@@ -11,10 +11,6 @@ namespace task_DEV_7
       get { return sides; }
     }
 
-    protected SimpleTriangle() 
-    {
-
-    }
     public SimpleTriangle(TriangleSides sides)
     {
       if (sides.AreCoherence())

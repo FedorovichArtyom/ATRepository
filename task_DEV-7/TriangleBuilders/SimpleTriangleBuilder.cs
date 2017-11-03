@@ -2,7 +2,7 @@
 
 namespace task_DEV_7
 {
-  class SimpleTriangleBuilder : TriangleBuilder
+  public class SimpleTriangleBuilder : TriangleBuilder
   {
     public override SimpleTriangle Build(TriangleSides sides)
     {

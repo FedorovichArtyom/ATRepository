@@ -2,7 +2,7 @@
 
 namespace task_DEV_7
 {
-  class EquilateralTriangleBuilder : TriangleBuilder
+  public class EquilateralTriangleBuilder : TriangleBuilder
   {
     public EquilateralTriangleBuilder(TriangleBuilder invokedBuilder)
     {
@@ -18,7 +18,14 @@ namespace task_DEV_7
       }
       catch (WrongSidesException ex)
       {
-        triangle = invokedBuilder.Build(sides);
+        if (invokedBuilder != null)
+        {
+          triangle = invokedBuilder.Build(sides);
+        }
+        else
+        {
+          throw new WrongSidesException();
+        }
       }
 
       return triangle;

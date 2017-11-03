@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace task_DEV_7
 {
-  class InputHandler
+  public class InputHandler
   {
     public TriangleSides GetSidesFromConsole()
     {
@@ -35,6 +35,11 @@ namespace task_DEV_7
         {
           parsed = false;
           Console.WriteLine(AssemblyInfo.unparsedInputValues);
+        }
+        catch (OverflowException ex)
+        {
+          parsed = false;
+          Console.WriteLine(AssemblyInfo.overflowSidesValues);
         }
       } while (!parsed);
 

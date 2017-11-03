@@ -2,7 +2,7 @@
 
 namespace task_DEV_7
 {
-  class EquilateralTriangle : IsoscelesTriangle
+  public class EquilateralTriangle : IsoscelesTriangle
   {
     public EquilateralTriangle(TriangleSides sides)
       : base(sides)

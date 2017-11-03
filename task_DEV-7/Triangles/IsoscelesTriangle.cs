@@ -2,12 +2,12 @@
 
 namespace task_DEV_7
 {
-  class IsoscelesTriangle : SimpleTriangle
+  public class IsoscelesTriangle : SimpleTriangle
   {
     public IsoscelesTriangle(TriangleSides sides)
-      : base()
+      : base(sides)
     {
-      if (sides.ContainsEqual() && sides.AreCoherence())
+      if (sides.ContainEqual())
       {
         this.sides = sides;
       }

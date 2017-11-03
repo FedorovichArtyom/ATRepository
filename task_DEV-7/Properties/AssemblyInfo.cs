@@ -45,15 +45,17 @@ internal static class AssemblyInfo
   internal const string enterTriangleSides =
     "Enter sides of the triangle. Separate values with spaces.";
   internal const string unparsedInputValues =
-    "Can't parse sides values. Try again.";
+    "\nCan't parse sides values. Try again.";
   internal const string invalidNumberOfInputValues =
-    "Invalid number of inputing values.";
+    "\nInvalid number of inputing values.";
   internal const string notExistedTriangle =
-    "Can't create a triangle with such sides.";
+    "\nCan't create a triangle with such sides.";
   internal const string notExistedIsoscelesTriangle =
-    "Can't create an isosceles triangle with such sides.";
+    "\nCan't create an isosceles triangle with such sides.";
   internal const string notExistedEquilateralTriangle =
-    "Can't create an equilateral triangle with such sides.";
+    "\nCan't create an equilateral triangle with such sides.";
+  internal const string overflowSidesValues = 
+    "Inputted values are out of double range! Try again.";
   internal const string triangleBuildSuccessMessage =
-    "Triangle was successfully build.";
+    "\nTriangle exists! Type:";
 }

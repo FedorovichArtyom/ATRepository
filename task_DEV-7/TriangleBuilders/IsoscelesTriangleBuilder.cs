@@ -2,8 +2,7 @@
 
 namespace task_DEV_7
 {
-
-  class IsoscelesTriangleBuilder : TriangleBuilder
+  public class IsoscelesTriangleBuilder : TriangleBuilder
   {
     public IsoscelesTriangleBuilder(TriangleBuilder invokedBuilder)
     {
@@ -18,7 +17,14 @@ namespace task_DEV_7
       }
       catch (WrongSidesException)
       {
-        triangle = invokedBuilder.Build(sides);
+        if (invokedBuilder != null)
+        {
+          triangle = invokedBuilder.Build(sides);
+        }
+        else
+        {
+          throw new WrongSidesException();
+        }
       }
       return triangle;
     }
