@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace task_DEV_13
+﻿namespace task_DEV_13
 {
   public enum DevGroupCreationCriterion
   {

@@ -23,7 +23,7 @@ namespace task_DEV_13
     // Throw ArgumentOutOfRangeException if price value isn't valid.
     public decimal GetValidPrice()
     {
-      decimal price = Convert.ToDecimal(StrPrice, AssemblyInfo.CULTURE);
+      decimal price = Convert.ToDecimal(StrPrice, AssemblyInfo.culture);
       if (price < AssemblyInfo.MIN_PRICE)
       {
         throw new ArgumentOutOfRangeException();
@@ -36,7 +36,7 @@ namespace task_DEV_13
     // Throw ArgumentOutOfRangeException if efficiency value isn't valid.
     public int GetValidEfficiency()
     {
-      int efficiency = Convert.ToInt32(StrEfficiency, AssemblyInfo.CULTURE);
+      int efficiency = Convert.ToInt32(StrEfficiency, AssemblyInfo.culture);
       if (efficiency < AssemblyInfo.MIN_EFFICIENCY || efficiency > AssemblyInfo.MAX_EFFICIENCY)
       {
         throw new ArgumentOutOfRangeException();

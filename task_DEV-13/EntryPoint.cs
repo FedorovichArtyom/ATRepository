@@ -13,6 +13,7 @@ namespace task_DEV_13
       decimal price;
       int efficiency;
       DevGroupCreationCriterion criterion;
+      
       try
       {
         price = validator.GetValidPrice();
@@ -24,6 +25,7 @@ namespace task_DEV_13
         Console.WriteLine(ex.Message);
       }
       //
+
     }
   }
 }
