@@ -52,4 +52,23 @@ public class AssemblyInfo
   public const string VALID_MAX_EFFICIENCY_CRITERION = "maxefficiency";
   public const string VALID_MIN_COST_CRITERION = "mincost";
   public const string VALID_MIN_NON_JUNIOR_DEVS_AMOUNT_CRITERION = "minnonjuniordevs";
+
+  // Default company development staff setup.
+  // Amount.
+  public const int JUNIOR_DEVS_AMOUNT = 30;
+  public const int MIDDLE_DEVS_AMOUNT = 15;
+  public const int SENIOR_DEVS_AMOUNT = 10;
+  public const int LEAD_DEVS_AMOUNT = 5;
+
+  // Price.
+  public const decimal JUNIOR_DEVS_PRICE = 500;
+  public const decimal MIDDLE_DEVS_PRICE = 1000;
+  public const decimal SENIOR_DEVS_PRICE = 2000;
+  public const decimal LEAD_DEVS_PRICE = 2500;
+
+  // Efficiency.
+  public const int JUNIOR_DEVS_EFFICIENCY = 25;
+  public const int MIDDLE_DEVS_EFFICIENCY = 50;
+  public const int SENIOR_DEVS_EFFICIENCY = 75;
+  public const int LEAD_DEVS_EFFICIENCY = 100;
 }

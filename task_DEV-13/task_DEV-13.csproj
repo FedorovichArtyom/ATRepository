@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompanyDevelopmentStaff.cs" />
     <Compile Include="ConsoleArgsValidator.cs" />
-    <Compile Include="Enums\DeveloperEfficiency.cs" />
+    <Compile Include="DevGroupProvider.cs" />
     <Compile Include="Enums\DevGroupCreationCriterion.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
