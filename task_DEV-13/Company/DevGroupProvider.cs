@@ -8,24 +8,37 @@ namespace task_DEV_13
     private decimal customerPrice;
     private int customerEfficiency;
 
-    public DevGroupProvider(decimal customerPrice, int customerEfficiency)
-    {
-      this.customerPrice = customerPrice;
-      this.customerEfficiency = customerEfficiency;
-    }
-
-    public DevGroup GetDevGroupWithMaxEfficiency()
-    {
-      DevGroup group = new DevGroup();
-      List<DeveloperQualification> efficiencyHierarchy = new List<DeveloperQualification>
+    private List<DeveloperQualification> efficiencyHierarchy = new List<DeveloperQualification>
       {
         new DeveloperQualification(QualificationName.Junior),
         new DeveloperQualification(QualificationName.Middle),
         new DeveloperQualification(QualificationName.Senior),
         new DeveloperQualification(QualificationName.Lead)
       };
-      efficiencyHierarchy.Sort();
 
+    public DevGroupProvider(decimal customerPrice, int customerEfficiency)
+    {
+      this.customerPrice = customerPrice;
+      this.customerEfficiency = customerEfficiency;
+    }
+
+    public DevGroup GetDevGroupWithMaxEfficiencyPerPrice()
+    {
+      efficiencyHierarchy.Sort(this.CompareQualificationsByEfficiencyPerPrice);
+
+      return BuildGroup();
+    }
+
+    public DevGroup GetDevGroupWithMinPricePerEfficiency()
+    {
+      efficiencyHierarchy.Sort(this.CompareQualificationsByPricePerEfficiency);
+
+      return BuildGroup();
+    }
+
+    private DevGroup BuildGroup()
+    {
+      DevGroup group = new DevGroup();
       decimal restCustomerPrice = customerPrice;
       foreach (var devQualification in efficiencyHierarchy)
       {
@@ -38,13 +51,73 @@ namespace task_DEV_13
           group.Add(devQualification, devsAmount);
           restCustomerPrice = priceResidual;
         }
-        else 
+        else
         {
           break;
         }
       }
-
       return group;
+    }
+
+    public int CompareQualificationsByEfficiencyPerPrice(DeveloperQualification firstQualification,
+      DeveloperQualification secondQualification)
+    {
+      int result = 0;
+      if (firstQualification.EfficiencyPerPrice > secondQualification.EfficiencyPerPrice)
+      {
+        result = -1;
+      }
+      if (firstQualification.EfficiencyPerPrice < secondQualification.EfficiencyPerPrice)
+      {
+        result = 1;
+      }
+      if (firstQualification.EfficiencyPerPrice == secondQualification.EfficiencyPerPrice)
+      {
+        if (firstQualification.Price > secondQualification.Price)
+        {
+          result = -1;
+        }
+        if (firstQualification.Price < secondQualification.Price)
+        {
+          result = 1;
+        }
+        if (firstQualification.Price == secondQualification.Price)
+        {
+          result = 0;
+        }
+      }
+
+      return result;
+    }
+    public int CompareQualificationsByPricePerEfficiency(DeveloperQualification firstQualification,
+      DeveloperQualification secondQualification)
+    {
+      int result = 0;
+      if (firstQualification.PricePerEfficiency > secondQualification.PricePerEfficiency)
+      {
+        result = 1;
+      }
+      if (firstQualification.PricePerEfficiency < secondQualification.PricePerEfficiency)
+      {
+        result = -1;
+      }
+      if (firstQualification.PricePerEfficiency == secondQualification.PricePerEfficiency)
+      {
+        if (firstQualification.Price > secondQualification.Price)
+        {
+          result = 1;
+        }
+        if (firstQualification.Price < secondQualification.Price)
+        {
+          result = -1;
+        }
+        if (firstQualification.Price == secondQualification.Price)
+        {
+          result = 0;
+        }
+      }
+
+      return result;
     }
   }
 }

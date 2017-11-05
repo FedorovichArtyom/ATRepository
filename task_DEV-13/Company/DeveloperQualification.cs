@@ -7,7 +7,9 @@ namespace task_DEV_13
     public QualificationName Qualification { get; set; }
     public int Efficiency { get; private set; }
     public decimal Price { get; private set; }
+
     public decimal PricePerEfficiency { get; private set; }
+    public decimal EfficiencyPerPrice { get; private set; }
 
     public DeveloperQualification(QualificationName qualification)
     {
@@ -32,6 +34,7 @@ namespace task_DEV_13
           break;
       }
       PricePerEfficiency = Price / Efficiency;
+      EfficiencyPerPrice = ((decimal)Efficiency) / Price;
     }
   }
 }
