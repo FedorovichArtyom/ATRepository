@@ -37,7 +37,7 @@ namespace task_DEV_13
     public int GetValidEfficiency()
     {
       int efficiency = Convert.ToInt32(StrEfficiency, AssemblyInfo.culture);
-      if (efficiency < AssemblyInfo.MIN_EFFICIENCY || efficiency > AssemblyInfo.MAX_EFFICIENCY)
+      if (efficiency < AssemblyInfo.MIN_EFFICIENCY)
       {
         throw new ArgumentOutOfRangeException();
       }

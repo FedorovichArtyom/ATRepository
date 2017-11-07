@@ -43,6 +43,8 @@ public class AssemblyInfo
   // Exceptions messages.
   public const string WRONG_CONDITIONS_EXCEPTION_MESSAGE = "Can't create an appropriate devs group for such needs.";
   // Messages.
+  public const string RESULT_MESSAGE = "The result devs group setup: \nJuniors:" +
+    "{0},\nMidlles: {1},\nSeniors: {2},\nLeads: {3}";
 
   // Console args valid values.
   // Price.
@@ -55,12 +57,6 @@ public class AssemblyInfo
   public const string VALID_MIN_NON_JUNIOR_DEVS_AMOUNT_CRITERION = "minnonjuniordevs";
 
   // Default company development staff setup.
-  // Amount.
-  // public const int JUNIOR_DEVS_AMOUNT = 30;
-  // public const int MIDDLE_DEVS_AMOUNT = 15;
-  // public const int SENIOR_DEVS_AMOUNT = 10;
-  // public const int LEAD_DEVS_AMOUNT = 5;
-
   // Price.
   public const decimal JUNIOR_DEVS_PRICE = 500m;
   public const decimal MIDDLE_DEVS_PRICE = 1000m;

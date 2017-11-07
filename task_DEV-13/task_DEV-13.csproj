@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Company\DevGroupConstituents.cs" />
     <Compile Include="ConsoleArgsValidator.cs" />
     <Compile Include="Company\DevGroup.cs" />
     <Compile Include="Company\DevGroupProvider.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Enums\DevGroupCreationCriterion.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Enums\QualificationName.cs" />
+    <Compile Include="Exceptions\WrongConditionsToCreateGroupException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

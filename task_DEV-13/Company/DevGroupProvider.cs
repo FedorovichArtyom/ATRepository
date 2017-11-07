@@ -8,14 +8,14 @@ namespace task_DEV_13
     private decimal customerPrice;
     private int customerEfficiency;
 
-    private Dictionary<QualificationName,int> maxDevsAmount;
+    private Dictionary<QualificationName, int> maxDevsAmount;
 
     private DeveloperQualification junior = new DeveloperQualification(QualificationName.Junior);
     private DeveloperQualification middle = new DeveloperQualification(QualificationName.Middle);
     private DeveloperQualification senior = new DeveloperQualification(QualificationName.Senior);
     private DeveloperQualification lead = new DeveloperQualification(QualificationName.Lead);
 
-    //
+    // Constructor.
     public DevGroupProvider(decimal customerPrice, int customerEfficiency)
     {
       this.customerPrice = customerPrice;
@@ -119,10 +119,64 @@ namespace task_DEV_13
       return customGroup;
     }
 
-    //
+    // Get custom devs group with min Non-Junior devs amount and lowest price for custom efficiency.
     public DevGroup GetDevGroupWithMinNonJuniorsForEfficiency()
     {
+      // Characteristics of custom dev group.
+      DevGroup customGroup = new DevGroup();
+      decimal totalPrice = 0m;
+      int totalEfficiency = 0;
+      int totalNonJuniors = 0;
 
+      // Check all possible variants of devs group combinations and get the one with valid efficiency and lowest price.
+      List<DevGroupConstituents> allGroupConfigurations = GetAllPossibleGroupConfigurations();
+      foreach (var groupConfiguration in allGroupConfigurations)
+      {
+        // Get the efficiency of new custom devs group and compare with customerEfficiency.
+        totalEfficiency = groupConfiguration.JuniorAmount * junior.Efficiency +
+          groupConfiguration.MiddleAmount * middle.Efficiency +
+          groupConfiguration.SeniorAmount * senior.Efficiency +
+          groupConfiguration.LeadAmount * lead.Efficiency;
+
+        // If group's total efficiency is valid get the price of the group.
+        if (totalEfficiency == customerEfficiency)
+        {
+          int newTotalNonJuniors = groupConfiguration.MiddleAmount +
+            groupConfiguration.SeniorAmount +
+            groupConfiguration.LeadAmount;
+
+          // If the amount of non-juniors in group is less than in previous group, create this new group.
+          if (newTotalNonJuniors < totalNonJuniors)
+          {
+            customGroup = new DevGroup(groupConfiguration);
+            totalNonJuniors = newTotalNonJuniors;
+          }
+          // If th amount of non-juniors in group is equal to the amount in previous group, check the new group by
+          // 'min price for custom efficiency' criterion.
+          else if (newTotalNonJuniors == totalNonJuniors)
+          {
+            decimal newTotalPrice = groupConfiguration.JuniorAmount * junior.Price +
+              groupConfiguration.MiddleAmount * middle.Price +
+              groupConfiguration.SeniorAmount * senior.Price +
+              groupConfiguration.LeadAmount * lead.Price;
+
+            if (newTotalPrice - totalPrice < 0m)
+            {
+              customGroup = new DevGroup(groupConfiguration);
+              totalPrice = newTotalPrice;
+            }
+          }
+        }
+      }
+
+      // If after all checked combinations the custom dev group is empty, return exception, cause there is no option 
+      // to create appropriate devs group.
+      if (customGroup.IsEmpty())
+      {
+        throw new WrongConditionsToCreateGroupException();
+      }
+
+      return customGroup;
     }
 
     // Get all posible group configurations of devs.

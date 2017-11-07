@@ -10,9 +10,9 @@ namespace task_DEV_13
     {
       // Get program parameters.
       ConsoleArgsValidator validator = new ConsoleArgsValidator(args);
-      decimal price;
-      int efficiency;
-      DevGroupCreationCriterion criterion;
+      decimal price = 0m;
+      int efficiency = 0;
+      DevGroupCreationCriterion criterion = DevGroupCreationCriterion.MaxEfficiency;
       
       try
       {
@@ -24,8 +24,28 @@ namespace task_DEV_13
       {
         Console.WriteLine(ex.Message);
       }
-      //
 
+      // Choose the criterion and create appropriate group.
+      DevGroupProvider groupProvider = new DevGroupProvider(price, efficiency);
+      DevGroup mostAppropriateGroup = new DevGroup();
+      switch (criterion)
+      { 
+        case DevGroupCreationCriterion.MaxEfficiency:
+          mostAppropriateGroup = groupProvider.GetDevGroupWithMaxEfficiencyForPrice();
+          break;
+        case DevGroupCreationCriterion.MinCost:
+          mostAppropriateGroup = groupProvider.GetDevGroupWithMinPriceForCustomEfficiency();
+          break;
+        case DevGroupCreationCriterion.MinJuniorDevsAmount:
+          mostAppropriateGroup = groupProvider.GetDevGroupWithMinNonJuniorsForEfficiency();
+          break;
+      }
+
+      Console.WriteLine(AssemblyInfo.RESULT_MESSAGE,
+        mostAppropriateGroup.Constituents.JuniorAmount,
+        mostAppropriateGroup.Constituents.MiddleAmount,
+        mostAppropriateGroup.Constituents.SeniorAmount,
+        mostAppropriateGroup.Constituents.LeadAmount);
     }
   }
 }

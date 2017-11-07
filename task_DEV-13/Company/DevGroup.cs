@@ -6,9 +6,11 @@ namespace task_DEV_13
   public class DevGroup
   {
     public Dictionary<DeveloperQualification, int> DevGroupInstance { get; private set; }
+    public DevGroupConstituents Constituents { get; private set; }
 
     public DevGroup()
     {
+      Constituents = new DevGroupConstituents(0, 0, 0, 0);
       DevGroupInstance = new Dictionary<DeveloperQualification, int>();
       DevGroupInstance.Add(new DeveloperQualification(QualificationName.Junior), 0);
       DevGroupInstance.Add(new DeveloperQualification(QualificationName.Middle), 0);
@@ -17,6 +19,7 @@ namespace task_DEV_13
     }
     public DevGroup(DevGroupConstituents constituents)
     {
+      this.Constituents = constituents;
       DevGroupInstance = new Dictionary<DeveloperQualification, int>();
       DevGroupInstance.Add(new DeveloperQualification(QualificationName.Junior), constituents.JuniorAmount);
       DevGroupInstance.Add(new DeveloperQualification(QualificationName.Middle), constituents.MiddleAmount);
