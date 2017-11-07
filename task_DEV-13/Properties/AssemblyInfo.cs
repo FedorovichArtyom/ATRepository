@@ -40,6 +40,8 @@ public class AssemblyInfo
 {
   // Culture info.
   public static readonly CultureInfo culture = new CultureInfo("en-us");
+  // Exceptions messages.
+  public const string WRONG_CONDITIONS_EXCEPTION_MESSAGE = "Can't create an appropriate devs group for such needs.";
   // Messages.
 
   // Console args valid values.
@@ -47,7 +49,6 @@ public class AssemblyInfo
   public const decimal MIN_PRICE = 0;
   // Efficiency.
   public const int MIN_EFFICIENCY = 0;
-  public const int MAX_EFFICIENCY = 1000;
   // Criterion.
   public const string VALID_MAX_EFFICIENCY_CRITERION = "maxefficiency";
   public const string VALID_MIN_COST_CRITERION = "mincost";
