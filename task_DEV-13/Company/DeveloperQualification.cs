@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace task_DEV_13
+﻿namespace task_DEV_13
 {
+  // Provides an object for each developer qualification such as Junior, Middle, etc.
+  // Contains necessary qualification characteristics. 
   public class DeveloperQualification
   {
     public QualificationName Qualification { get; set; }

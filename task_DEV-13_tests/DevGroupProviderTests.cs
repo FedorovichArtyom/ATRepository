@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using task_DEV_13;
 
 namespace task_DEV_13_tests
 {
   [TestClass]
+  // Tests for DevGroupProvider methods of DevGroup creating.
   public class DevGroupProviderTests
   {
     // GetDevGroupWithMaxEfficiencyForPrice tests. First criterion.

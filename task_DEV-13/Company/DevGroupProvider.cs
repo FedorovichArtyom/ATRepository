@@ -3,11 +3,15 @@ using System.Collections.Generic;
 
 namespace task_DEV_13
 {
+  // Class constracting an appropriate DevGroup due to customer price, customer efficiency 
+  // parameters. Different methods provides different ways for DevGroup creation based on
+  // customer criterion.
   public class DevGroupProvider
   {
     private decimal customerPrice;
     private int customerEfficiency;
 
+    // Dictionary contains the amount of max amount of devs due to the customer price.
     private Dictionary<QualificationName, int> maxDevsAmount;
 
     private DeveloperQualification junior = new DeveloperQualification(QualificationName.Junior);

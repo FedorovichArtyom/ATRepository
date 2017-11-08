@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace task_DEV_13
+﻿namespace task_DEV_13
 {
+  // Provides an object for amount of devs of each dev qualification.
   public struct DevGroupConstituents
   {
     public int JuniorAmount;
