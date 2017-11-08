@@ -10,7 +10,7 @@ namespace task_DEV_13_tests
     // GetDevGroupWithMaxEfficiencyForPrice tests. First criterion.
     [TestMethod]
     public void TestGetDevGroupWithMaxEfficiencyForPriceWithValidInputs()
-    { 
+    {
       // Arrange.
       decimal customerPrice = 5600m;
       int customerEfficiency = 200;
@@ -146,6 +146,69 @@ namespace task_DEV_13_tests
 
       // Act.
       DevGroup group = groupProvider.GetDevGroupWithMinPriceForCustomEfficiency();
+
+      // Assert.
+      int juniors = 0;
+      int middles = 0;
+      int seniors = 0;
+      int leads = 0;
+      DevGroupConstituents expected = new DevGroupConstituents(juniors, middles, seniors, leads);
+      Assert.AreEqual(group.Constituents, expected);
+    }
+
+    // GetDevGroupWithMinNonJuniorsForEfficiency tests. Third criterion.
+    [TestMethod]
+    public void TestGetDevGroupWithMinNonJuniorsForEfficiencyForValidValues()
+    {
+      // Arrange.
+      decimal customerPrice = 7000m;
+      int customerEfficiency = 300;
+      var groupProvider = new DevGroupProvider(customerPrice, customerEfficiency);
+
+      // Act.
+      DevGroup group = groupProvider.GetDevGroupWithMinNonJuniorsForEfficiency();
+
+      // Assert.
+      int juniors = 12;
+      int middles = 0;
+      int seniors = 0;
+      int leads = 0;
+      DevGroupConstituents expected = new DevGroupConstituents(juniors, middles, seniors, leads);
+      Assert.AreEqual(group.Constituents, expected);
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(WrongConditionsToCreateGroupException))]
+    public void TestGetDevGroupWithMinNonJuniorsForEfficiencyForNegativePrice()
+    {
+      // Arrange.
+      decimal customerPrice = -7000m;
+      int customerEfficiency = 300;
+      var groupProvider = new DevGroupProvider(customerPrice, customerEfficiency);
+
+      // Act.
+      DevGroup group = groupProvider.GetDevGroupWithMinNonJuniorsForEfficiency();
+
+      // Assert.
+      int juniors = 0;
+      int middles = 0;
+      int seniors = 0;
+      int leads = 0;
+      DevGroupConstituents expected = new DevGroupConstituents(juniors, middles, seniors, leads);
+      Assert.AreEqual(group.Constituents, expected);
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(WrongConditionsToCreateGroupException))]
+    public void TestGetDevGroupWithMinNonJuniorsForEfficiencyForNegativeEfficiency()
+    {
+      // Arrange.
+      decimal customerPrice = 7000m;
+      int customerEfficiency = -300;
+      var groupProvider = new DevGroupProvider(customerPrice, customerEfficiency);
+
+      // Act.
+      DevGroup group = groupProvider.GetDevGroupWithMinNonJuniorsForEfficiency();
 
       // Assert.
       int juniors = 0;

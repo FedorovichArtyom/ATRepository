@@ -62,6 +62,7 @@ public class AssemblyInfo
   public const decimal MIDDLE_DEVS_PRICE = 1000m;
   public const decimal SENIOR_DEVS_PRICE = 2000m;
   public const decimal LEAD_DEVS_PRICE = 2300m;
+  public const decimal LOWEST_NONJUNIOR_DEV_PRICE = 1000;
 
   // Efficiency.
   public const int JUNIOR_DEVS_EFFICIENCY = 25;

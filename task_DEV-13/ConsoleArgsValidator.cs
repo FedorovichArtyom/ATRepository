@@ -36,6 +36,21 @@ namespace task_DEV_13
     // Throw ArgumentOutOfRangeException if efficiency value isn't valid.
     public int GetValidEfficiency()
     {
+      // If the string number contains .0 at the end remove this because it still 
+      // an integer number. This rule is not spread for greater amount of zeros after
+      // dot, cause it means that input is incorrect.
+      int minPossibleNumberLength = 2;
+      int dotPosition = StrEfficiency.Length - 2;
+      int zeroAfterDotPosition = StrEfficiency.Length - 1;
+      if (StrEfficiency.Length > minPossibleNumberLength)
+      {
+        if ((StrEfficiency[dotPosition] == '.') &&
+          (StrEfficiency[zeroAfterDotPosition] == '0'))
+        {
+          StrEfficiency = StrEfficiency.Remove(StrEfficiency.Length - 2);
+        }
+      }
+
       int efficiency = Convert.ToInt32(StrEfficiency, AssemblyInfo.culture);
       if (efficiency < AssemblyInfo.MIN_EFFICIENCY)
       {

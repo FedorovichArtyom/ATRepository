@@ -87,7 +87,7 @@ namespace task_DEV_13
       foreach (var groupConfiguration in allGroupConfigurations)
       {
         // Get the efficiency of new custom devs group and compare with customerEfficiency.
-        totalEfficiency = groupConfiguration.JuniorAmount * junior.Efficiency + 
+        totalEfficiency = groupConfiguration.JuniorAmount * junior.Efficiency +
           groupConfiguration.MiddleAmount * middle.Efficiency +
           groupConfiguration.SeniorAmount * senior.Efficiency +
           groupConfiguration.LeadAmount * lead.Efficiency;
@@ -95,7 +95,7 @@ namespace task_DEV_13
         // If group's total efficiency is valid get the price of the group.
         if (totalEfficiency == customerEfficiency)
         {
-          decimal newTotalPrice = groupConfiguration.JuniorAmount * junior.Price + 
+          decimal newTotalPrice = groupConfiguration.JuniorAmount * junior.Price +
             groupConfiguration.MiddleAmount * middle.Price +
             groupConfiguration.SeniorAmount * senior.Price +
             groupConfiguration.LeadAmount * lead.Price;
@@ -126,7 +126,10 @@ namespace task_DEV_13
       DevGroup customGroup = new DevGroup();
       decimal totalPrice = customerPrice;
       int totalEfficiency = 0;
-      int totalNonJuniors = 0;
+
+      // Get the value for total non juniors greater than max possible amount of   
+      // Non-Juniors devs with lowest price.
+      int totalNonJuniors = (int)Math.Ceiling(customerPrice / AssemblyInfo.LOWEST_NONJUNIOR_DEV_PRICE);
 
       // Check all possible variants of devs group combinations and get the one with valid efficiency and lowest price.
       List<DevGroupConstituents> allGroupConfigurations = GetAllPossibleGroupConfigurations();
@@ -145,21 +148,22 @@ namespace task_DEV_13
             groupConfiguration.SeniorAmount +
             groupConfiguration.LeadAmount;
 
+          decimal newTotalPrice = groupConfiguration.JuniorAmount * junior.Price +
+            groupConfiguration.MiddleAmount * middle.Price +
+            groupConfiguration.SeniorAmount * senior.Price +
+            groupConfiguration.LeadAmount * lead.Price;
+
           // If the amount of non-juniors in group is less than in previous group, create this new group.
           if (newTotalNonJuniors < totalNonJuniors)
           {
             customGroup = new DevGroup(groupConfiguration);
             totalNonJuniors = newTotalNonJuniors;
+            totalPrice = newTotalPrice;
           }
           // If th amount of non-juniors in group is equal to the amount in previous group, check the new group by
           // 'min price for custom efficiency' criterion.
           else if (newTotalNonJuniors == totalNonJuniors)
           {
-            decimal newTotalPrice = groupConfiguration.JuniorAmount * junior.Price +
-              groupConfiguration.MiddleAmount * middle.Price +
-              groupConfiguration.SeniorAmount * senior.Price +
-              groupConfiguration.LeadAmount * lead.Price;
-
             if (newTotalPrice - totalPrice <= 0m)
             {
               customGroup = new DevGroup(groupConfiguration);
