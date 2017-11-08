@@ -39,7 +39,7 @@ using System.Globalization;
 public class AssemblyInfo
 {
   // Culture info.
-  public static readonly CultureInfo culture = new CultureInfo("en-us");
+  public static readonly CultureInfo culture = new CultureInfo("en-US");
   // Exceptions messages.
   public const string WRONG_CONDITIONS_EXCEPTION_MESSAGE = "Can't create an appropriate devs group for such needs.";
   // Messages.
@@ -61,11 +61,11 @@ public class AssemblyInfo
   public const decimal JUNIOR_DEVS_PRICE = 500m;
   public const decimal MIDDLE_DEVS_PRICE = 1000m;
   public const decimal SENIOR_DEVS_PRICE = 2000m;
-  public const decimal LEAD_DEVS_PRICE = 2500m;
+  public const decimal LEAD_DEVS_PRICE = 2300m;
 
   // Efficiency.
   public const int JUNIOR_DEVS_EFFICIENCY = 25;
-  public const int MIDDLE_DEVS_EFFICIENCY = 50;
+  public const int MIDDLE_DEVS_EFFICIENCY = 60;
   public const int SENIOR_DEVS_EFFICIENCY = 75;
   public const int LEAD_DEVS_EFFICIENCY = 100;
 }

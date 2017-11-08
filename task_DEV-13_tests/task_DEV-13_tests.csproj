@@ -50,8 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ConsoleArgsValidatorTests.cs" />
+    <Compile Include="DevGroupProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\task_DEV-13\task_DEV-13.csproj">
+      <Project>{2de06071-499c-437e-a252-303b11d8d5fd}</Project>
+      <Name>task_DEV-13</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

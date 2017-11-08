@@ -35,7 +35,11 @@ namespace task_DEV_13
       bool result = true;
       foreach (var devQualification in DevGroupInstance)
       {
-        result = devQualification.Value != 0; 
+        if (devQualification.Value != 0)
+        {
+          result = false;
+          break;
+        }
       }
 
       return result;

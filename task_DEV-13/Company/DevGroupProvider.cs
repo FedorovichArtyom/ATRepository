@@ -48,7 +48,7 @@ namespace task_DEV_13
             groupConfiguration.LeadAmount * lead.Price;
 
         // If the group total price is valid get the efficiency of the group.
-        if (totalPrice - customerPrice < 0m)
+        if (totalPrice - customerPrice <= 0m)
         {
           int newTotalEfficiency = groupConfiguration.JuniorAmount * junior.Efficiency +
             groupConfiguration.MiddleAmount * middle.Efficiency +
@@ -79,7 +79,7 @@ namespace task_DEV_13
     {
       // Characteristics of custom dev group.
       DevGroup customGroup = new DevGroup();
-      decimal totalPrice = 0m;
+      decimal totalPrice = customerPrice;
       int totalEfficiency = 0;
 
       // Check all possible variants of devs group combinations and get the one with valid efficiency and lowest price.
@@ -101,7 +101,7 @@ namespace task_DEV_13
             groupConfiguration.LeadAmount * lead.Price;
 
           // If the new group's price is lower than previous group's, create a new custom devs group. 
-          if (newTotalPrice - totalPrice < 0m)
+          if (newTotalPrice - totalPrice <= 0m)
           {
             customGroup = new DevGroup(groupConfiguration);
             totalPrice = newTotalPrice;
@@ -124,7 +124,7 @@ namespace task_DEV_13
     {
       // Characteristics of custom dev group.
       DevGroup customGroup = new DevGroup();
-      decimal totalPrice = 0m;
+      decimal totalPrice = customerPrice;
       int totalEfficiency = 0;
       int totalNonJuniors = 0;
 
@@ -160,7 +160,7 @@ namespace task_DEV_13
               groupConfiguration.SeniorAmount * senior.Price +
               groupConfiguration.LeadAmount * lead.Price;
 
-            if (newTotalPrice - totalPrice < 0m)
+            if (newTotalPrice - totalPrice <= 0m)
             {
               customGroup = new DevGroup(groupConfiguration);
               totalPrice = newTotalPrice;
