@@ -18,17 +18,9 @@ namespace task_DEV_12
         Third = 5.11
       };
 
-      try
-      {
-        // Act.
-        SimpleTriangle triangle = new SimpleTriangle(sides);
-        // Assert.
-        Assert.Fail();
-      }
-      catch (WrongSidesException ex)
-      { 
-
-      }
+      // Act.
+      SimpleTriangle triangle = new SimpleTriangle(sides);
+      // Assert.
     }
 
     [TestMethod]
